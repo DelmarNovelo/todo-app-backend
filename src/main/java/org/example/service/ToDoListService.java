@@ -90,4 +90,15 @@ public class ToDoListService {
         });
         return toDoLists;
     }
+
+    @PUT
+    @Path("/update-status/{title}")
+    public Set<ToDoList> updateStatus(@PathParam("title") String title) {
+        toDoLists.forEach(toDo -> {
+            if (toDo.getTitle().equals(title)) {
+            	toDo.setDone(true);
+            }
+        });
+        return toDoLists;
+    }
 }
